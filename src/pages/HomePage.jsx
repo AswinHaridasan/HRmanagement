@@ -7,7 +7,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   const [profile, setProfile] = useState({});
-  const [email, setEmail] = useState('tonald@work.com');
+  const [email, setEmail] = useState('');
   const [tasks, setTasks] = useState([]);
   const [meetings, setMeetings] = useState([]);
 

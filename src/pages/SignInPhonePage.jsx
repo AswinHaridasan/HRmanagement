@@ -76,12 +76,12 @@ export default function SignInPhonePage() {
                 <label>Phone Number</label>
                 <div className="phone-input-box">
                   <div className="country-code">
-                    <span>INA ▾</span>
-                    <span className="code-number">+62</span>
+                    <span>IND ▾</span>
+                    <span className="code-number">+91</span>
                   </div>
                   <input 
                     type="tel" 
-                    placeholder="821 3930 0003" 
+                    placeholder="00000 00000" 
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     required

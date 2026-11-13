@@ -1,649 +1,436 @@
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-}
-
+/* --- Base Page Layout --- */
 .payroll-page {
-  width: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6;
   min-height: 100vh;
-  max-width: 100%;
-  margin: 0 auto;
-  background: #f4f6fa;
-  font-family: "Segoe UI", sans-serif;
-  color: #25233a;
-  overflow-x: hidden;
+  color: #333;
 }
-
-/* Header */
 
 .payroll-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  padding: 17px 25px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.payroll-header button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
 }
 
 .payroll-header h2 {
-  font-size: 19px;
   margin: 0;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
-
-.payroll-header button,
-.payslip-back {
-  background: none;
-  border: none;
-  font-size: 23px;
-  cursor: pointer;
-  color: #25233a;
-}
-
-.payroll-header span {
-  width: 30px;
-  flex-shrink: 0;
-}
-
-/* Main Content */
 
 .payroll-content {
-  width: 100%;
-  max-width: 1150px;
+  padding: 20px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 25px;
-  padding-bottom: 45px;
 }
 
 .payroll-heading {
-  margin-bottom: 23px;
+  margin-bottom: 24px;
 }
 
 .payroll-heading h2 {
-  font-size: 24px;
-  margin: 0 0 7px;
+  margin: 0 0 4px 0;
+  font-size: 1.5rem;
+  color: #1a1a1a;
 }
 
 .payroll-heading p {
-  color: #999;
-  font-size: 13px;
   margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* --- Professional Empty State --- */
+.payroll-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 2px dashed #e0e0e0;
+  margin-top: 20px;
+}
+
+.empty-icon-wrapper {
+  background-color: #f0f4f8;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.empty-document-icon {
+  font-size: 36px;
+}
+
+.payroll-empty-state h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: #2d3748;
+}
+
+.payroll-empty-state p {
+  margin: 0 0 24px 0;
+  color: #718096;
+  font-size: 0.95rem;
+  max-width: 350px;
   line-height: 1.5;
 }
 
-/* Payroll List */
-
-.payroll-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+.empty-refresh-btn {
+  background-color: #ffffff;
+  color: #3182ce;
+  border: 1px solid #3182ce;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.payroll-month-card,
-.payroll-working-card,
-.payroll-breakdown-card {
-  min-width: 0;
-  background: #fff;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(0,0,0,.035);
-  border: 1px solid #f0eef5;
+.empty-refresh-btn:hover {
+  background-color: #3182ce;
+  color: #ffffff;
+}
+
+/* --- Payroll Month Cards (List View) --- */
+.payroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payroll-month-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
 }
 
 .payroll-month-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-.payroll-month-heading > div {
+.payroll-month-heading div {
   display: flex;
   align-items: center;
-  gap: 9px;
-  min-width: 0;
+  gap: 8px;
 }
 
 .payroll-month-heading h3 {
-  font-size: 15px;
   margin: 0;
-  overflow-wrap: anywhere;
+  font-size: 1.1rem;
+  color: #2c3e50;
 }
 
 .payroll-calendar-icon {
-  font-size: 19px;
-  flex-shrink: 0;
+  font-size: 1.2rem;
 }
 
 .payroll-paid-badge {
-  background: #e9f9ef;
-  color: #219653;
-  padding: 6px 11px;
+  background-color: #e6f4ea;
+  color: #1e8e3e;
+  padding: 4px 12px;
   border-radius: 20px;
-  font-size: 11px;
-  font-weight: 700;
-  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .payroll-mini-details {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.payroll-mini-details div,
-.payroll-card-footer div {
+.payroll-mini-details div {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  min-width: 0;
 }
 
-.payroll-mini-details span,
-.payroll-card-footer span {
-  font-size: 11px;
-  color: #999;
+.payroll-mini-details span {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 2px;
 }
 
 .payroll-mini-details strong {
-  font-size: 13px;
-  overflow-wrap: anywhere;
+  font-size: 0.95rem;
+  color: #333;
 }
 
 .payroll-card-footer {
-  border-top: 1px solid #eee;
-  margin-top: 17px;
-  padding-top: 14px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.payroll-card-footer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.payroll-card-footer span {
+  font-size: 0.85rem;
+  color: #888;
 }
 
 .payroll-card-footer strong {
-  color: #7042ed;
-  font-size: 17px;
-  overflow-wrap: anywhere;
+  font-size: 1.1rem;
+  color: #000;
 }
 
 .payroll-card-footer button {
+  background: #f4f6f8;
   border: none;
-  background: #7042ed;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: #0056b3;
+  font-weight: 600;
   cursor: pointer;
-  flex-shrink: 0;
+  transition: background 0.2s;
 }
 
-/* Payslip Details */
+.payroll-card-footer button:hover {
+  background: #e2e6ea;
+}
 
+/* --- Payslip Detail View --- */
 .payslip-details {
-  width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .payslip-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
   margin-bottom: 20px;
 }
 
 .payslip-back {
-  font-size: 14px;
+  background: none;
+  border: none;
+  color: #0056b3;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
 }
 
 .payslip-title {
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .payslip-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
-  margin: auto auto 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #eee7ff;
-  font-size: 27px;
+  font-size: 40px;
+  margin-bottom: 8px;
 }
 
 .payslip-title h2 {
-  font-size: 22px;
-  margin: 0 0 6px;
+  margin: 0;
+  color: #1a1a1a;
 }
 
 .payslip-title p {
-  color: #999;
-  font-size: 13px;
-  margin: 0;
+  margin: 4px 0 0 0;
+  color: #666;
 }
 
 .salary-highlight {
-  background: linear-gradient(135deg, #8050ff, #6030d8);
-  color: white;
   text-align: center;
-  padding: 28px 18px;
-  border-radius: 16px;
-  margin-bottom: 18px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
 }
 
 .salary-highlight span {
-  font-size: 13px;
-  opacity: .9;
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .salary-highlight h1 {
-  margin: 11px 0;
-  font-size: 32px;
-  overflow-wrap: anywhere;
+  margin: 8px 0;
+  color: #1a1a1a;
+  font-size: 2.2rem;
 }
 
 .salary-highlight p {
-  font-size: 12px;
   margin: 0;
-  opacity: .85;
+  font-size: 0.85rem;
+  color: #1e8e3e;
+  font-weight: 500;
 }
 
-/* Working Details */
-
-.payroll-working-card,
-.payroll-breakdown-card {
-  margin-bottom: 18px;
+.payroll-working-card, .payroll-breakdown-card {
+  margin-bottom: 24px;
 }
 
-.payroll-working-card h3,
-.payroll-breakdown-card h3 {
-  margin: 0 0 16px;
-  font-size: 16px;
+.payroll-working-card h3, .payroll-breakdown-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
 }
 
-.payroll-working-card div,
-.breakdown-row,
-.breakdown-heading,
-.breakdown-total {
+.payroll-working-card div, .breakdown-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  font-size: 13px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
 }
 
-.payroll-working-card div span,
-.breakdown-row span {
-  color: #777;
-  min-width: 0;
-  overflow-wrap: anywhere;
+.payroll-working-card span, .breakdown-row span {
+  color: #666;
 }
-
-.payroll-working-card strong,
-.breakdown-row strong {
-  font-size: 13px;
-  text-align: right;
-  overflow-wrap: anywhere;
-}
-
-/* Salary Breakdown */
 
 .breakdown-heading {
-  font-weight: 700;
-  color: #7042ed;
-  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 .deduction-heading {
-  margin-top: 12px;
+  margin-top: 24px;
 }
 
 .earning {
-  color: #219653;
+  color: #1e8e3e;
 }
 
 .deduction {
-  color: #ed5353;
+  color: #d93025;
 }
 
 .breakdown-total {
-  border-top: 1px solid #eee;
-  margin-top: 12px;
-  font-weight: 700;
-}
-
-.breakdown-total strong {
-  color: #7042ed;
-  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px dashed #eee;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .save-payslip-btn {
   width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #8050ff, #6333e5);
+  background-color: #0056b3;
   color: white;
-  font-size: 14px;
-  font-weight: 700;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 5px 14px rgba(112,66,237,.25);
+  margin-top: 10px;
+  transition: background 0.2s;
 }
 
-/* Success Modal */
+.save-payslip-btn:hover {
+  background-color: #004494;
+}
 
+/* --- Modal Styling --- */
 .payroll-modal-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.55);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  z-index: 500;
-  overflow-y: auto;
+  z-index: 1000;
 }
 
 .payroll-success-modal {
-  width: 100%;
-  max-width: 360px;
-  padding: 30px 22px;
   background: white;
-  border-radius: 20px;
+  padding: 30px;
+  border-radius: 16px;
   text-align: center;
+  max-width: 320px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
 }
 
 .payroll-success-icon {
   width: 60px;
   height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 15px;
-  background: #e6f8ec;
-  color: #27ae60;
-  border-radius: 50%;
+  background-color: #e6f4ea;
+  color: #1e8e3e;
   font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 16px;
 }
 
 .payroll-success-modal h2 {
-  font-size: 20px;
-  margin: 0 0 10px;
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
 }
 
 .payroll-success-modal p {
-  font-size: 13px;
-  color: #888;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  color: #666;
+  margin: 0 0 20px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .payroll-success-modal button {
   width: 100%;
-  padding: 13px;
+  padding: 12px;
+  background-color: #f1f3f4;
   border: none;
-  border-radius: 25px;
-  background: #7042ed;
-  color: white;
-  font-weight: 700;
+  border-radius: 8px;
+  color: #333;
+  font-weight: 600;
   cursor: pointer;
 }
 
-/* Tablet */
-
-@media (max-width: 900px) {
-  .payroll-content {
-    max-width: 800px;
-    padding: 22px;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .payroll-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
-
-  .payroll-month-card {
-    padding: 16px;
-  }
-
-  .payroll-header {
-    padding: 16px 20px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 600px) {
-  .payroll-header {
-    padding: 14px 15px;
-  }
-
-  .payroll-header h2 {
-    font-size: 17px;
-  }
-
-  .payroll-content {
-    padding: 17px 14px 30px;
-  }
-
-  .payroll-heading {
-    margin-bottom: 18px;
-  }
-
-  .payroll-heading h2 {
-    font-size: 21px;
-  }
-
-  .payroll-heading p {
-    font-size: 12px;
-  }
-
-  .payroll-list {
-    grid-template-columns: 1fr;
-    gap: 13px;
-  }
-
-  .payroll-month-card,
-  .payroll-working-card,
-  .payroll-breakdown-card {
-    padding: 15px;
-    border-radius: 13px;
-  }
-
-  .payroll-month-heading {
-    margin-bottom: 14px;
-  }
-
-  .payroll-month-heading h3 {
-    font-size: 13px;
-  }
-
-  .payroll-paid-badge {
-    font-size: 10px;
-    padding: 5px 9px;
-  }
-
-  .payroll-mini-details {
-    gap: 12px;
-  }
-
-  .payroll-mini-details span,
-  .payroll-card-footer span {
-    font-size: 10px;
-  }
-
-  .payroll-mini-details strong {
-    font-size: 12px;
-  }
-
-  .payroll-card-footer {
-    margin-top: 13px;
-    padding-top: 12px;
-  }
-
-  .payroll-card-footer strong {
-    font-size: 15px;
-  }
-
-  .payroll-card-footer button {
-    padding: 9px 12px;
-    font-size: 10px;
-  }
-
-  /* Payslip Mobile */
-
-  .payslip-details {
-    max-width: 100%;
-  }
-
-  .payslip-title h2 {
-    font-size: 19px;
-  }
-
-  .payslip-title p {
-    font-size: 12px;
-  }
-
-  .salary-highlight {
-    padding: 23px 13px;
-  }
-
-  .salary-highlight h1 {
-    font-size: 27px;
-  }
-
-  .salary-highlight span {
-    font-size: 11px;
-  }
-
-  .payroll-working-card h3,
-  .payroll-breakdown-card h3 {
-    font-size: 14px;
-  }
-
-  .payroll-working-card div,
-  .breakdown-row,
-  .breakdown-heading,
-  .breakdown-total {
-    font-size: 12px;
-    padding: 10px 0;
-  }
-
-  .payroll-working-card strong,
-  .breakdown-row strong {
-    font-size: 12px;
-  }
-
-  .breakdown-total strong {
-    font-size: 15px;
-  }
-
-  .save-payslip-btn {
-    padding: 14px;
-    font-size: 13px;
-  }
-}
-
-/* Small Mobile */
-
-@media (max-width: 360px) {
-  .payroll-content {
-    padding: 14px 10px 25px;
-  }
-
-  .payroll-month-card,
-  .payroll-working-card,
-  .payroll-breakdown-card {
-    padding: 13px;
-  }
-
-  .payroll-mini-details {
-    gap: 9px;
-  }
-
-  .payroll-month-heading h3 {
-    font-size: 12px;
-  }
-
-  .payroll-card-footer button {
-    padding: 8px 10px;
-    font-size: 9px;
-  }
-
-  .salary-highlight h1 {
-    font-size: 24px;
-  }
-
-  .payroll-working-card div,
-  .breakdown-row,
-  .breakdown-heading,
-  .breakdown-total {
-    gap: 8px;
-    font-size: 11px;
-  }
-
-  .payroll-success-modal {
-    padding: 25px 17px;
-  }
-}
-
-/* Print Payslip */
-
-@media print {
-  @page {
-    size: A4;
-    margin: 15mm;
-  }
-
-  body * {
-    visibility: hidden !important;
-  }
-
-  .payslip-details,
-  .payslip-details * {
-    visibility: visible !important;
-  }
-
-  .payslip-details {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    background: white;
-  }
-
-  .payslip-back,
-  .save-payslip-btn,
-  .payslip-top .payroll-paid-badge {
-    display: none !important;
-  }
-
-  .payroll-working-card,
-  .payroll-breakdown-card,
-  .salary-highlight {
-    break-inside: avoid;
-    box-shadow: none;
-  }
-
-  .salary-highlight {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

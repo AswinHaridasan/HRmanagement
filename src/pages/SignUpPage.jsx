@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SignUpPage.css';
 
@@ -20,6 +20,12 @@ export default function SignUpPage() {
   const [showOtpModal, setShowOtpModal] = useState(false);
   
   const [pwdError, setPwdError] = useState('');
+  
+  // OTP States & Refs
+  const [otp, setOtp] = useState(new Array(6).fill(""));
+  const [otpError, setOtpError] = useState('');
+  const [expectedOtp, setExpectedOtp] = useState('123456'); // Dynamic Demo OTP
+  const otpRefs = useRef([]);
 
   useEffect(() => {
     window.history.replaceState({}, document.title);
@@ -44,18 +50,72 @@ export default function SignUpPage() {
 
     setPwdError(''); 
     setShowOtpModal(true);
+    setOtp(new Array(6).fill("")); // Reset OTP inputs on modal open
+    setOtpError('');
+    setExpectedOtp('123456'); // Set initial demo OTP
   };
 
-  
-  const handleOtpSubmit = () => {
-    setShowOtpModal(false);
+  // Handle OTP input changes
+  const handleOtpChange = (element, index) => {
+    if (isNaN(element.value)) return; // Only allow numbers
+
+    const newOtp = [...otp];
+    newOtp[index] = element.value;
+    setOtp(newOtp);
+    setOtpError('');
+
+    // Move to next input if current one is filled
+    if (element.value !== "" && index < 5) {
+      otpRefs.current[index + 1].focus();
+    }
+  };
+
+  // Handle Backspace for OTP
+  const handleOtpKeyDown = (e, index) => {
+    if (e.key === "Backspace") {
+      if (otp[index] === "" && index > 0) {
+        // Move to previous input if current is empty and backspace is pressed
+        otpRefs.current[index - 1].focus();
+      }
+    }
+  };
+
+  // Handle Resend OTP
+  const handleResendOtp = () => {
+    // Generate a new random 6-digit OTP
+    const newDemoOtp = Math.floor(100000 + Math.random() * 900000).toString();
+    setExpectedOtp(newDemoOtp);
     
+    // Clear inputs and errors
+    setOtp(new Array(6).fill(""));
+    setOtpError('');
+    
+    // Refocus the first input box
+    if (otpRefs.current[0]) {
+      otpRefs.current[0].focus();
+    }
+  };
+
+  const handleOtpSubmit = () => {
+    const enteredOtp = otp.join("");
+    
+    if (enteredOtp.length !== 6) {
+      setOtpError("Please enter all 6 digits.");
+      return;
+    }
+
+    // Dynamic Demo OTP validation check
+    if (enteredOtp !== expectedOtp) {
+      setOtpError(`Invalid OTP. Try ${expectedOtp} for demo purposes.`);
+      return;
+    }
+
+    setShowOtpModal(false);
     
     localStorage.setItem('registeredEmail', email);
     localStorage.setItem('registeredPassword', password);
-    
-    
     localStorage.setItem('userEmail', email); 
+    
     navigate('/welcome-setup');
   };
 
@@ -192,17 +252,44 @@ export default function SignUpPage() {
             <p className="otp-subtext">
               A verification code will be sent to the email <br/>
               <strong>{email || 'your email'}</strong> for your account verification process.
+              <br/><span style={{ fontSize: '14px', color: '#007bff', fontWeight: 'bold' }}>(Your OTP: {expectedOtp})</span>
             </p>
             
             <div className="otp-inputs">
-              {[1, 2, 3, 4, 5, 6].map((index) => (
-                <input key={index} type="text" maxLength="1" className="otp-box" />
+              {otp.map((data, index) => (
+                <input 
+                  key={index} 
+                  type="text" 
+                  maxLength="1" 
+                  className="otp-box"
+                  value={data}
+                  ref={(el) => (otpRefs.current[index] = el)}
+                  onChange={(e) => handleOtpChange(e.target, index)}
+                  onKeyDown={(e) => handleOtpKeyDown(e, index)}
+                  onFocus={(e) => e.target.select()}
+                />
               ))}
             </div>
 
-            <p className="resend-text">Haven't received the verification code? <span>Resend it.</span></p>
+            {otpError && (
+              <p style={{ color: '#ff4d4f', fontSize: '13px', marginTop: '10px', textAlign: 'center' }}>
+                {otpError}
+              </p>
+            )}
+
+            <p className="resend-text">
+              Haven't received the verification code?{' '}
+              <span 
+                onClick={handleResendOtp} 
+                style={{ cursor: 'pointer', color: '#007bff', textDecoration: 'underline' }}
+              >
+                Resend it.
+              </span>
+            </p>
             
-            <button className="submit-button" onClick={handleOtpSubmit}>Submit</button>
+            <button className="submit-button" onClick={handleOtpSubmit} style={{ marginTop: '15px' }}>
+              Verify & Submit
+            </button>
           </div>
         </div>
       )}

@@ -1,16 +1,9 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PayrollPage.css";
 
-const payrollData = [
-  { month: "September 2026", basic: 30000, allowance: 5000, tax: 1500, pf: 1800, working: 26, paid: 26 },
-  { month: "August 2026", basic: 30000, allowance: 5000, tax: 1500, pf: 1800, working: 26, paid: 25 },
-  { month: "July 2026", basic: 30000, allowance: 4500, tax: 1500, pf: 1800, working: 27, paid: 26 },
-  { month: "June 2026", basic: 30000, allowance: 5000, tax: 1500, pf: 1800, working: 25, paid: 25 },
-  { month: "May 2026", basic: 30000, allowance: 5000, tax: 1500, pf: 1800, working: 26, paid: 26 },
-  { month: "April 2026", basic: 30000, allowance: 4000, tax: 1500, pf: 1800, working: 26, paid: 24 }
-];
+// Setting data to empty to trigger the empty state
+const payrollData = []; 
 
 const PayrollPage = () => {
   const navigate = useNavigate();
@@ -37,7 +30,7 @@ const PayrollPage = () => {
     <div className="payroll-page">
 
       <header className="payroll-header">
-        <button onClick={() => navigate(-1)}>←</button>
+        <button onClick={() => navigate(-1)}>← Back</button>
         <h2>Payroll and Tax</h2>
         <span></span>
       </header>
@@ -52,54 +45,68 @@ const PayrollPage = () => {
             </div>
 
             <div className="payroll-list">
-              {payrollData.map((item, index) => (
-                <div className="payroll-month-card" key={item.month}>
-
-                  <div className="payroll-month-heading">
-                    <div>
-                      <span className="payroll-calendar-icon">📅</span>
-                      <h3>{item.month}</h3>
-                    </div>
-                    <span className="payroll-paid-badge">Paid</span>
+              {payrollData.length === 0 ? (
+                // --- PROFESSIONAL EMPTY STATE ---
+                <div className="payroll-empty-state">
+                  <div className="empty-icon-wrapper">
+                    <span className="empty-document-icon">📄</span>
                   </div>
-
-                  <div className="payroll-mini-details">
-                    <div>
-                      <span>Basic Salary</span>
-                      <strong>{formatMoney(item.basic)}</strong>
-                    </div>
-
-                    <div>
-                      <span>Allowance</span>
-                      <strong>{formatMoney(item.allowance)}</strong>
-                    </div>
-
-                    <div>
-                      <span>Working Days</span>
-                      <strong>{item.working}</strong>
-                    </div>
-
-                    <div>
-                      <span>Paid Days</span>
-                      <strong>{item.paid}</strong>
-                    </div>
-                  </div>
-
-                  <div className="payroll-card-footer">
-                    <div>
-                      <span>Net Salary</span>
-                      <strong>{formatMoney(getNetSalary(item))}</strong>
-                    </div>
-
-                    <button
-                      onClick={() => setSelectedPayroll(item)}
-                    >
-                      View Details →
-                    </button>
-                  </div>
-
+                  <h3>No Payroll Records Found</h3>
+                  <p>Your payslips will appear here automatically once they are processed and published by your HR department.</p>
+                  <button className="empty-refresh-btn" onClick={() => window.location.reload()}>
+                    Refresh Page
+                  </button>
                 </div>
-              ))}
+              ) : (
+                payrollData.map((item) => (
+                  <div className="payroll-month-card" key={item.month}>
+
+                    <div className="payroll-month-heading">
+                      <div>
+                        <span className="payroll-calendar-icon">📅</span>
+                        <h3>{item.month}</h3>
+                      </div>
+                      <span className="payroll-paid-badge">Paid</span>
+                    </div>
+
+                    <div className="payroll-mini-details">
+                      <div>
+                        <span>Basic Salary</span>
+                        <strong>{formatMoney(item.basic)}</strong>
+                      </div>
+
+                      <div>
+                        <span>Allowance</span>
+                        <strong>{formatMoney(item.allowance)}</strong>
+                      </div>
+
+                      <div>
+                        <span>Working Days</span>
+                        <strong>{item.working}</strong>
+                      </div>
+
+                      <div>
+                        <span>Paid Days</span>
+                        <strong>{item.paid}</strong>
+                      </div>
+                    </div>
+
+                    <div className="payroll-card-footer">
+                      <div>
+                        <span>Net Salary</span>
+                        <strong>{formatMoney(getNetSalary(item))}</strong>
+                      </div>
+
+                      <button
+                        onClick={() => setSelectedPayroll(item)}
+                      >
+                        View Details →
+                      </button>
+                    </div>
+
+                  </div>
+                ))
+              )}
             </div>
           </>
         ) : (

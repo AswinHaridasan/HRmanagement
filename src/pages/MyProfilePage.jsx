@@ -185,7 +185,7 @@ export default function MyProfilePage() {
               <span className="profile-arrow">›</span>
             </Link>
 
-            <Link to="/roles" className="profile-menu-link">
+            <Link to="" className="profile-menu-link">
               <span className="menu-icon-box orange">💼</span>
               <span className="menu-link-text">Roles</span>
               <span className="profile-arrow">›</span>

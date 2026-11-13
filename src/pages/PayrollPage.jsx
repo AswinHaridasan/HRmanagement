@@ -53,9 +53,6 @@ const PayrollPage = () => {
                   </div>
                   <h3>No Payroll Records Found</h3>
                   <p>Your payslips will appear here automatically once they are processed and published by your HR department.</p>
-                  <button className="empty-refresh-btn" onClick={() => window.location.reload()}>
-                    Refresh Page
-                  </button>
                 </div>
               ) : (
                 payrollData.map((item) => (

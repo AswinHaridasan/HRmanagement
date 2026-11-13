@@ -23,7 +23,7 @@ export default function NotificationsPage() {
       {/* Header */}
       <div className="notif-header">
         <button className="back-btn-light" onClick={() => navigate(-1)}>
-          <span className="back-icon">‹</span>
+          <span className="back-icon">‹-</span>
         </button>
         <h2 className="notif-title">Notifications</h2>
         {notifications.length > 0 ? (

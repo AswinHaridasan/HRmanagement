@@ -1,8 +1,12 @@
 
 import React, { useState } from "react";
 import "./ExpensePage.css";
+import { useNavigate } from "react-router-dom";
 
 export default function ExpensePage() {
+
+  const navigate = useNavigate();
+
   const [expenses, setExpenses] = useState([]);
   const [category, setCategory] = useState("Food");
   const [amount, setAmount] = useState("");
@@ -98,7 +102,13 @@ export default function ExpensePage() {
       {/* Header */}
       <header className="expense-header">
         <div className="expense-header-top">
-          <button className="expense-back-btn">‹</button>
+          <button 
+            className="expense-back-btn" 
+            aria-label="Go back"
+            onClick={() => navigate(-1)} 
+          >
+            ‹-
+          </button>
 
           <h2>Expense Management</h2>
 
@@ -336,28 +346,7 @@ export default function ExpensePage() {
 
       </main>
 
-      {/* Bottom Navigation */}
-      <nav className="expense-bottom-nav">
-        <button>
-          <span>⌂</span>
-          Home
-        </button>
-
-        <button className="nav-active">
-          <span>💰</span>
-          Expenses
-        </button>
-
-        <button>
-          <span>📊</span>
-          Reports
-        </button>
-
-        <button>
-          <span>👤</span>
-          Profile
-        </button>
-      </nav>
+      
 
       {/* Success Modal */}
       {showSuccess && (

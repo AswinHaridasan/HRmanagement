@@ -59,7 +59,7 @@ export default function MyProfilePage() {
           onClick={() => navigate("/home")}
           aria-label="Go to Home"
         >
-          ‹
+          ‹-
         </button>
 
           <h2>My Profile</h2>

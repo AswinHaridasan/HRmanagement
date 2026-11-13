@@ -1,8 +1,12 @@
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LeavePage.css";
 
 export default function LeavePage() {
+
+  const navigate = useNavigate();
+  
   const [leaveType, setLeaveType] = useState("Casual Leave");
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
@@ -61,7 +65,11 @@ export default function LeavePage() {
       {/* Header */}
       <header className="leave-header">
         <div className="leave-header-top">
-          <button className="leave-back-btn" aria-label="Go back">
+          <button 
+            className="leave-back-btn" 
+            aria-label="Go back"
+            onClick={() => navigate(-1)} 
+          >
             ‹
           </button>
 
@@ -254,28 +262,6 @@ export default function LeavePage() {
 
       </main>
 
-      {/* Bottom Navigation */}
-      <nav className="leave-bottom-nav">
-        <button className="nav-active">
-          <span>⌂</span>
-          Home
-        </button>
-
-        <button>
-          <span>📅</span>
-          Leave
-        </button>
-
-        <button>
-          <span>📋</span>
-          History
-        </button>
-
-        <button>
-          <span>👤</span>
-          Profile
-        </button>
-      </nav>
 
       {/* Success Modal */}
       {showSuccess && (

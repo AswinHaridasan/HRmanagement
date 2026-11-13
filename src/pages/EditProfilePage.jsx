@@ -100,7 +100,7 @@ const EditProfilePage = () => {
           className="edit-back-btn"
           onClick={() => navigate(-1)}
         >
-          ‹
+          ‹-
         </button>
 
         <h1>Personal Data</h1>

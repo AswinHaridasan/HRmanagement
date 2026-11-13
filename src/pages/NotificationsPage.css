@@ -178,3 +178,42 @@
     font-size: 12px;
   }
 }
+
+/* സാധാരണ (Read) നോട്ടിഫിക്കേഷൻ */
+.notif-item {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+/* വായിക്കാത്ത (Unread) നോട്ടിഫിക്കേഷൻ സ്റ്റൈൽ */
+.notif-item.unread {
+  background-color: #f0f7ff; /* ഇളം നീല നിറം (നിങ്ങളുടെ തീമിന് അനുസരിച്ച് മാറ്റാം) */
+  border-left: 4px solid #1890ff; /* ഇടതുവശത്ത് ഒരു ബ്ലൂ ബോർഡർ */
+}
+
+/* Unread ആയിരിക്കുമ്പോൾ ടൈറ്റിൽ നല്ല കട്ടിയിൽ (Bold) കാണിക്കാൻ */
+.notif-item.unread .notif-title-row h4 {
+  font-weight: 700;
+  color: #000;
+}
+
+.notif-item.unread .notif-desc {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Read ആയതിന് ശേഷം ഉള്ള സ്റ്റൈൽ (അല്പം മങ്ങിയ രീതിയിൽ) */
+.notif-item.read {
+  background-color: #ffffff;
+  opacity: 0.85;
+}
+
+/* Unread സൂചിപ്പിക്കുന്ന ചെറിയ നീല ഡോട്ട് */
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #1890ff;
+  border-radius: 50%;
+  display: inline-block;
+}

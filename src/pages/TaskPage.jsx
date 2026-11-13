@@ -278,23 +278,6 @@ export default function TaskPage() {
         + Create Task
       </button>
 
-      {/* Bottom Navigation */}
-      <div className="bottom-nav-container">
-        <div className="bottom-nav">
-          <Link to="/home" className="nav-item">
-            <span className="nav-icon">🏠</span>
-          </Link>
-          <Link to="/clock-in" className="nav-item">
-            <span className="nav-icon">⏱️</span>
-          </Link>
-          <Link to="/tasks" className="nav-item active">
-            <span className="nav-icon">📝</span>
-          </Link>
-          <Link to="/my-profile" className="nav-item">
-            <span className="nav-icon">👤</span>
-          </Link>
-        </div>
-      </div>
 
       {/* FULL SCREEN CREATE TASK MODAL */}
       {showCreateModal && (

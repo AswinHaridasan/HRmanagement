@@ -107,7 +107,7 @@ export default function ExpensePage() {
             aria-label="Go back"
             onClick={() => navigate(-1)} 
           >
-            ‹-
+            ‹
           </button>
 
           <h2>Expense Management</h2>

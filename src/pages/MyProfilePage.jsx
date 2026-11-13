@@ -185,11 +185,7 @@ export default function MyProfilePage() {
               <span className="profile-arrow">›</span>
             </Link>
 
-            <Link to="" className="profile-menu-link">
-              <span className="menu-icon-box orange">💼</span>
-              <span className="menu-link-text">Roles</span>
-              <span className="profile-arrow">›</span>
-            </Link>
+            
           </div>
         </section>
 
@@ -210,7 +206,7 @@ export default function MyProfilePage() {
               <span className="profile-arrow">›</span>
             </div>
 
-            <Link to="/help" className="profile-menu-link">
+            <Link to="#" className="profile-menu-link">
               <span className="menu-icon-box orange">❓</span>
               <span className="menu-link-text">FAQ and Help</span>
               <span className="profile-arrow">›</span>

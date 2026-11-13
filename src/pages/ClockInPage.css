@@ -1,0 +1,406 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #f7f6fc;
+  overflow-x: hidden;
+  padding-bottom: 30px;
+}
+
+/* Profile Header */
+.clock-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 30px;
+}
+
+.clock-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+
+.clock-profile-avatar {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  border-radius: 50%;
+  background: #7047d7;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 700;
+  object-fit: cover;
+}
+
+.clock-profile-image {
+  display: block;
+}
+
+.clock-profile-info {
+  min-width: 0;
+}
+
+.clock-profile-info h3 {
+  margin: 0;
+  color: #25213a;
+  font-size: 18px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.clock-profile-info p {
+  margin: 5px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.clock-profile-email {
+  display: block;
+  margin-top: 4px;
+  color: #888;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* Banner */
+.clock-banner {
+  width: calc(100% - 60px);
+  max-width: 1140px;
+  margin: 10px auto 25px;
+  padding: 28px 30px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #7047d7, #9874ed);
+  color: white;
+}
+
+.clock-banner h2 {
+  margin: 0 0 8px;
+  font-size: 25px;
+}
+
+.clock-banner p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Main Content */
+.content-scrollable {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 30px 30px;
+}
+
+/* Working Hours */
+.working-hours-card {
+  width: 100%;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 18px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(45, 35, 80, 0.06);
+}
+
+.card-subtitle {
+  margin: 0 0 8px;
+  color: #302b43;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.card-desc {
+  margin: 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.hours-text {
+  margin: 20px 0;
+  color: #7047d7;
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 800;
+}
+
+.clock-status {
+  color: #27864c;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-clock {
+  min-width: 180px;
+  max-width: 100%;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #7047d7;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-clock:hover {
+  background: #5933bd;
+  transform: translateY(-1px);
+}
+
+/* History */
+.history-section {
+  width: 100%;
+}
+
+.history-section > h3 {
+  margin: 0 0 18px;
+  color: #302b43;
+  font-size: 20px;
+}
+
+.history-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.history-item {
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(45, 35, 80, 0.05);
+}
+
+.history-date {
+  margin-bottom: 16px;
+  color: #7047d7;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.history-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.time-block {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.time-block strong {
+  margin-left: auto;
+  color: #302b43;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  min-width: 9px;
+  border-radius: 50%;
+}
+
+.dot.in {
+  background: #28ae70;
+}
+
+.dot.out {
+  background: #ed765f;
+}
+
+.time-line {
+  width: 2px;
+  height: 12px;
+  margin-left: 3px;
+  background: #ddd;
+}
+
+.history-total {
+  margin-top: 5px;
+  color: #7047d7;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.history-location {
+  margin: 0;
+  color: #888;
+  font-size: 12px;
+}
+
+.active-history {
+  margin-top: 18px;
+  border: 1px solid #9874ed;
+}
+
+/* Empty State */
+.empty-state {
+  width: 100%;
+  padding: 45px 20px;
+  border-radius: 15px;
+  background: #fff;
+  text-align: center;
+}
+
+.empty-icon {
+  margin-bottom: 12px;
+  font-size: 35px;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #888;
+  font-size: 15px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .clock-header {
+    padding: 20px;
+  }
+
+  .clock-banner {
+    width: calc(100% - 40px);
+    padding: 24px;
+  }
+
+  .content-scrollable {
+    padding: 0 20px 25px;
+  }
+
+  .history-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .clock-header {
+    padding: 16px;
+  }
+
+  .clock-profile-avatar {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    font-size: 19px;
+  }
+
+  .clock-profile-info h3 {
+    font-size: 16px;
+  }
+
+  .clock-profile-info p {
+    font-size: 12px;
+  }
+
+  .clock-profile-email {
+    font-size: 11px;
+  }
+
+  .clock-banner {
+    width: calc(100% - 28px);
+    margin: 8px auto 18px;
+    padding: 22px 18px;
+    border-radius: 15px;
+  }
+
+  .clock-banner h2 {
+    font-size: 21px;
+  }
+
+  .clock-banner p {
+    font-size: 12px;
+  }
+
+  .content-scrollable {
+    padding: 0 14px 25px;
+  }
+
+  .working-hours-card {
+    padding: 24px 15px;
+    margin-bottom: 22px;
+  }
+
+  .card-subtitle {
+    font-size: 17px;
+  }
+
+  .card-desc {
+    font-size: 12px;
+  }
+
+  .hours-text {
+    margin: 17px 0;
+    font-size: 34px;
+  }
+
+  .btn-clock {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .history-section > h3 {
+    font-size: 18px;
+  }
+
+  .history-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .history-item {
+    padding: 17px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .clock-profile {
+    gap: 10px;
+  }
+
+  .clock-profile-avatar {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .clock-profile-info h3 {
+    font-size: 14px;
+  }
+
+  .clock-banner h2 {
+    font-size: 19px;
+  }
+
+  .time-block {
+    font-size: 12px;
+  }
+
+  .history-item {
+    padding: 14px;
+  }
+}
+
+

@@ -1,0 +1,91 @@
+.setup-page-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F3F4F6; 
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.setup-card {
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* ചെറിയൊരു ഷാഡോ */
+}
+
+
+.setup-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+
+.setup-desc {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+
+.setup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.setup-buttons > .primary-button {
+  background-color: #7C3AED;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.setup-buttons > .primary-button:active {
+  transform: scale(0.98); 
+}
+
+
+.setup-buttons > .secondary-button {
+  background-color: transparent;
+  color: #7C3AED;
+  border: 1.5px solid #D1D5DB;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.setup-buttons > .secondary-button:hover {
+  border-color: #7C3AED; 
+}
+
+
+@media (max-width: 480px) {
+  .setup-page-bg {
+    background-color: white; 
+    padding: 0;
+  }
+  
+  .setup-card {
+    box-shadow: none; 
+    border-radius: 0;
+    padding: 30px 20px;
+  }
+}

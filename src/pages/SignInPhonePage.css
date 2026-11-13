@@ -1,0 +1,322 @@
+/* Main Container */
+.phone-signin-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #2b1b54; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Top Purple Background */
+.phone-signin-graphic {
+  flex: 0.2;
+  background: linear-gradient(180deg, #9b63fa 0%, #6830ff 100%);
+}
+
+/* Bottom White Content Area */
+.phone-signin-content {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 40px 24px 30px 24px;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-top: -20px;
+  z-index: 10;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+  position: relative; /* important for floating icon */
+}
+
+/* Header */
+.phone-signin-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.phone-signin-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.phone-signin-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  text-align: center;
+}
+
+/* Phone Input Form */
+.phone-signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Custom Phone Input Styling */
+.phone-input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #fafafa;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.phone-input-box:focus-within {
+  border-color: #7b3dfd;
+  box-shadow: 0 0 0 3px rgba(123, 61, 253, 0.1);
+  background-color: #fff;
+}
+
+.country-code {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px 14px 16px;
+  background-color: #f0f0f0;
+  border-right: 1px solid #e0e0e0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.code-number {
+  color: #666;
+}
+
+.phone-input-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  padding: 14px 12px;
+  letter-spacing: 1px;
+}
+
+/* Form Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.remember-me input {
+  margin-right: 8px;
+  accent-color: #7b3dfd;
+  width: 16px;
+  height: 16px;
+}
+
+.forgot-pwd-link {
+  font-size: 13px;
+  color: #7b3dfd;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Shared Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #7b3dfd;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(123, 61, 253, 0.3);
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #6627e6;
+}
+
+/* Divider & Alt Options */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 25px 0;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #eee;
+}
+
+.divider span {
+  padding: 0 15px;
+}
+
+.alt-login-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.btn-secondary.alt-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  background-color: transparent;
+  color: #7b3dfd;
+  border: 1.5px solid #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary.alt-btn:hover {
+  border-color: #7b3dfd;
+  background-color: #f6f3ff;
+}
+
+.phone-signin-footer {
+  text-align: center;
+  margin-top: auto;
+  font-size: 14px;
+  color: #666;
+}
+
+.signup-link {
+  color: #7b3dfd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =========================================
+   OTP SECTION STYLES
+   ========================================= */
+.otp-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px; /* Space for floating icon */
+}
+
+/* Floating Purple Phone Icon */
+.floating-icon-box {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7b3dfd;
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  box-shadow: 0 8px 20px rgba(123, 61, 253, 0.4);
+  color: white;
+}
+
+.otp-subtitle {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.otp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.otp-inputs-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.otp-digit-input {
+  width: 45px;
+  height: 55px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.otp-digit-input:focus {
+  outline: none;
+  border-color: #7b3dfd;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(123, 61, 253, 0.1);
+}
+
+.resend-text {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.resend-link {
+  color: #7b3dfd;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.different-method-footer {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666;
+}
+
+.method-link {
+  color: #7b3dfd;
+  font-weight: 600;
+  cursor: pointer;
+}

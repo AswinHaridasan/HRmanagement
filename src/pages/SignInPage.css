@@ -1,0 +1,238 @@
+/* Container matching the onboarding structure */
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #2b1b54; /* Dark purple base behind the card */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Top space to mimic the modal slide-up look */
+.signin-graphic-section {
+  flex: 0.2; /* Takes up a small top portion */
+  background: linear-gradient(180deg, #9b63fa 0%, #6830ff 100%);
+}
+
+/* Bottom White Card Section */
+.signin-content-section {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 40px 24px 30px 24px;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-top: -20px;
+  z-index: 10;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.signin-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signin-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.signin-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Form Styling */
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.input-box:focus-within {
+  border-color: #7b3dfd;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(123, 61, 253, 0.1);
+}
+
+.input-box.error-border {
+  border-color: #ff4d4f;
+  background-color: #fff0f0;
+}
+
+.input-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  padding: 0 10px;
+}
+
+.icon {
+  font-size: 18px;
+  color: #888;
+}
+
+.eye-icon {
+  cursor: pointer;
+  color: #888;
+  font-size: 18px;
+  user-select: none;
+}
+
+.error-text {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin: 6px 0 0 4px;
+}
+
+/* Options Row (Remember Me & Forgot Password) */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.remember-me input {
+  margin-right: 8px;
+  accent-color: #7b3dfd;
+  width: 16px;
+  height: 16px;
+}
+
+.forgot-pwd-link {
+  font-size: 13px;
+  color: #7b3dfd;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Buttons */
+.signin-btn {
+  margin-top: 5px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #7b3dfd;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(123, 61, 253, 0.3);
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #6627e6;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 25px 0;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #eee;
+}
+
+.divider span {
+  padding: 0 15px;
+}
+
+/* Alternative Login Buttons */
+.alt-login-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.btn-secondary.alt-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  background-color: transparent;
+  color: #7b3dfd;
+  border: 1.5px solid #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary.alt-btn:hover {
+  border-color: #7b3dfd;
+  background-color: #f6f3ff;
+}
+
+/* Footer */
+.signin-footer {
+  text-align: center;
+  margin-top: auto;
+  font-size: 14px;
+  color: #666;
+}
+
+.signup-link {
+  color: #7b3dfd;
+  font-weight: 600;
+  text-decoration: none;
+}
